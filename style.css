@@ -10,3 +10,160 @@ p {
 }
 
 /* Fin parte de Bruno */
+
+/*Andres */
+:root{
+  --orange:#f5821f;
+  --orange-dark:#e56f0a;
+  --dark:#1c1c1c;
+  --gray-bg:#f7f6f4;
+  --card-bg:#ffffff;
+  --text:#222;
+  --muted:#777;
+  --border:#eaeaea;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Segoe UI', Roboto, Arial, sans-serif;
+  background:var(--gray-bg);
+  color:var(--text);
+}
+
+/* NAVBAR */
+header.navbar{
+  background:var(--dark);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 32px;
+}
+.logo{font-size:20px;font-weight:700;}
+.logo span{color:var(--orange);}
+nav.links{display:flex;gap:28px;align-items:center;}
+nav.links a{color:#fff;text-decoration:none;font-size:14px;opacity:.9;}
+nav.links a:hover{opacity:1;color:var(--orange);}
+.nav-icons{display:flex;gap:16px;align-items:center;}
+.cart-btn{
+  position:relative;background:none;border:none;color:#fff;
+  font-size:18px;cursor:pointer;
+}
+.cart-count{
+  position:absolute;top:-8px;right:-10px;
+  background:var(--orange);color:#fff;
+  font-size:11px;border-radius:50%;
+  width:18px;height:18px;display:flex;align-items:center;justify-content:center;
+}
+
+/* HERO / TITLE */
+.hero{
+  text-align:center;
+  padding:36px 16px 20px;
+}
+.hero h1{margin:0 0 6px;font-size:26px;}
+.hero p{margin:0;color:var(--muted);font-size:14px;}
+
+/* CONTROLS */
+.controls{
+  max-width:1100px;margin:0 auto;padding:0 24px;
+  display:flex;gap:16px;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;
+}
+.search-box{
+  flex:1;min-width:220px;
+  display:flex;align-items:center;
+  background:#fff;border:1px solid var(--border);
+  border-radius:8px;padding:10px 14px;
+}
+.search-box input{
+  border:none;outline:none;flex:1;font-size:14px;background:transparent;
+}
+.search-box svg{opacity:.5;}
+.sort-box{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);white-space:nowrap;}
+.sort-box select{
+  padding:9px 12px;border-radius:8px;border:1px solid var(--border);
+  font-size:14px;background:#fff;color:var(--text);
+}
+
+/* CATEGORY PILLS */
+.categories{
+  max-width:1100px;margin:18px auto 0;padding:0 24px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.pill{
+  padding:9px 18px;border-radius:20px;border:1px solid var(--border);
+  background:#fff;font-size:14px;cursor:pointer;transition:.15s;
+  color:var(--text);
+}
+.pill:hover{border-color:var(--orange);}
+.pill.active{
+  background:var(--orange);color:#fff;border-color:var(--orange);
+  font-weight:600;
+}
+
+/* PRODUCT GRID */
+.grid{
+  max-width:1100px;margin:26px auto;padding:0 24px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:22px;
+}
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .15s, box-shadow .15s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.08);}
+.card img{
+  width:100%;height:150px;object-fit:cover;display:block;background:#eee;
+}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;}
+.card-body h3{margin:0;font-size:15px;}
+.price-row{display:flex;align-items:center;justify-content:space-between;}
+.price{font-weight:700;color:var(--dark);font-size:15px;}
+.add-btn{
+  background:var(--orange);color:#fff;border:none;
+  width:34px;height:34px;border-radius:8px;font-size:18px;
+  cursor:pointer;line-height:1;
+}
+.add-btn:hover{background:var(--orange-dark);}
+.add-btn.added{background:#2e7d32;}
+
+.empty{
+  text-align:center;color:var(--muted);padding:40px 0;grid-column:1/-1;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);color:#ccc;
+  padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:13px;margin-top:30px;
+}
+footer .socials{display:flex;gap:14px;}
+footer .socials span{
+  width:30px;height:30px;border-radius:50%;background:#2a2a2a;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* TOAST */
+#toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--dark);color:#fff;padding:12px 22px;border-radius:8px;
+  font-size:14px;opacity:0;pointer-events:none;transition:.25s;
+  z-index:50;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:700px){
+  nav.links{display:none;}
+  header.navbar{padding:14px 18px;}
+  .controls{padding:0 16px;}
+  .categories{padding:0 16px;}
+  .grid{padding:0 16px;}
+  footer{flex-direction:column;gap:10px;text-align:center;padding:18px;}
+}
+/*fin andres*/
