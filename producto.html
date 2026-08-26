@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodExpress</title>
+    <title>FoodExpress - Catalogo de productos</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -12,8 +12,53 @@
 
 <body>
 
-    <h1>Nuestros productos</h1>
+<header class="navbar">
+    <div class="logo">Food<span>Express</span></div>
+    <nav class="links">
+        <a href="#">Inicio</a>
+        <a href="#">Menu</a>
+        <a href="#">Productos</a>
+        <a href="#">Contacto</a>
+    </nav>
+    <div class="nav-icons"></div>
+        <span>🔔</span>
+        <button class="cart-btn" id="cartBtn"🛒<span class="cart-count" id="cartCount">0</span></button>
+    </div>
+</header>
 
+ <section class="hero">
+    <h1>Nuestros Productos</h1>
+    <p>Elegi lo que mas te guste</p>
+ </section>
+
+
+<div class="controls">
+  <div class="search-box">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="searchInput" placeholder="Buscar productos...">
+  </div>
+  <div class="sort-box">
+    Ordenar por:
+    <select id="sortSelect">
+      <option value="popular">Más populares</option>
+      <option value="price-asc">Precio: menor a mayor</option>
+      <option value="price-desc">Precio: mayor a menor</option>
+      <option value="name">Nombre (A-Z)</option>
+    </select>
+  </div>
+</div>
+
+<div class="categories" id="categories"></div>
+
+<div class="grid" id="grid"></div>
+
+<footer>
+  <div>© 2026 FoodExpress. Todos los derechos reservados.</div>
+  <div class="socials"><span>📷</span><span>📘</span></div>
+</footer>
+
+<div id="toast"></div>
+    
 </body>
 
 </html>
