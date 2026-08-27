@@ -19,6 +19,43 @@ a {
   color: inherit;
 }
 
+/*barra de navegación*/
+.navbar {
+  background-color: #111111;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 7%;
+}
+
+/* LOGO */
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    color:#e56f0a;
+}
+
+/* MENÚ */
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+}
+
+.navbar nav a:hover {
+    color: #f47b20;
+}
 
 /* Fin parte de Bruno */
 
