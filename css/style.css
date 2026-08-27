@@ -82,6 +82,29 @@ a {
     padding: 40px 7%;
 }
 
+/* TEXTO DEL BANNER */
+
+.texto-banner {
+    width: 50%;
+}
+
+.texto-banner h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.texto-banner h1 span {
+    color: #f47b20;
+}
+
+.texto-banner p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+
 
 /* Fin parte de Bruno */
 
