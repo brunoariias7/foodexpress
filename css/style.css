@@ -104,6 +104,39 @@ a {
     margin-bottom: 25px;
 }
 
+/* BOTONES */
+
+.botones {
+    display: flex;
+    gap: 15px;
+}
+
+.boton {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.principal {
+    background-color: #f47b20;
+    color: white;
+}
+
+.secundario {
+    border: 1px solid #f47b20;
+    color: white;
+}
+
+.principal:hover {
+    background-color: #d95f08;
+}
+
+.secundario:hover {
+    background-color: #f47b20;
+}
+
+
 
 
 /* Fin parte de Bruno */
