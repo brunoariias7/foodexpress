@@ -57,6 +57,32 @@ a {
     color: #f47b20;
 }
 
+/* ICONOS */
+
+.iconos {
+    display: flex;
+    gap: 18px;
+}
+
+.iconos a {
+    font-size: 20px;
+}
+
+/* BANNER */
+
+.banner {
+    background-color: #111111;
+    color: white;
+
+    min-height: 380px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 40px 7%;
+}
+
+
 /* Fin parte de Bruno */
 
 /*Andres */
