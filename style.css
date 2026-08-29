@@ -10,3 +10,21 @@ p {
 }
 
 /* Fin parte de Bruno */
+
+/* parte de sofi*/
+body{
+    margin: 0;
+    font-family: arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+nav{
+    background-color: black;
+    padding: 15px;
+    text-align: center;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
