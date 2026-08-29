@@ -28,3 +28,16 @@ nav a{
     text-decoration: none;
     margin: 0 15px;
 }
+
+.productos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.producto{
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+}
