@@ -502,9 +502,9 @@ footer p {
 
 /*Andres */
 
-/* Acá defino los colores y algunos valores que uso en toda la página, 
-   así si después quiero cambiar el naranja lo cambio una sola vez acá 
-   y se actualiza en todos lados donde lo usé */
+/* defino los colores y algunos valores que uso en toda la pagina, 
+   asi si después quiero cambiar el naranja lo cambio una sola vez aca
+   y se actualiza en todos lados donde lo use */
 :root {
   --orange: #f5821f;
   --orange-dark: #e56f0a;
@@ -516,14 +516,13 @@ footer p {
   --border: #eaeaea;
 }
 
-/* Esto hace que cuando le pongo padding o border a algo, no se me
-   agrande el tamaño total del elemento (más fácil para calcular medidas) */
+/* esto hace que cuando le pongo padding o border a algo, no se me
+   agrande el tamaño total del elemento (mas facil para calcular medidas) */
 * {
   box-sizing: border-box;
 }
 
-/* Estilos generales de toda la página: le saco el margen que trae
-   por defecto el navegador y defino la tipografía y el fondo gris clarito */
+/* estilos generales de toda la pagina*/
 body {
   margin: 0;
   font-family: 'Segoe UI', Roboto, Arial, sans-serif;
@@ -531,9 +530,9 @@ body {
   color: var(--text);
 }
 
-/* ============ BARRA DE NAVEGACIÓN (arriba de todo) ============ */
+/*barra de navegacion*/
 
-/* La barra negra de arriba: pongo el logo a la izquierda, el menú 
+/* pongo el logo a la izquierda, el menu 
    en el medio y los iconos a la derecha usando flexbox */
 header.navbar {
   background: var(--dark);
@@ -544,7 +543,7 @@ header.navbar {
   padding: 16px 32px;
 }
 
-/* El texto "FoodExpress" */
+/* el titulo "FoodExpress" */
 .logo {
   font-size: 20px;
   font-weight: 700;
@@ -615,7 +614,7 @@ nav.links a:hover {
   justify-content: center;
 }
 
-/* ============ TÍTULO PRINCIPAL ============ */
+/* titulo principal*/
 
 /* El bloque de "Nuestros productos" con el subtítulo, centrado */
 .hero {
@@ -634,7 +633,7 @@ nav.links a:hover {
   font-size: 14px;
 }
 
-/* ============ BUSCADOR Y ORDENAR POR ============ */
+/* buscador y ordenar por */
 
 /* Fila donde van el buscador y el select de "Ordenar por", uno al lado
    del otro. Con flex-wrap hace que si la pantalla es chica, se acomoden
@@ -700,7 +699,7 @@ nav.links a:hover {
   color: var(--text);
 }
 
-/* ============ BOTONES DE CATEGORÍA (PILLS) ============ */
+/* botones de categoria */
 
 /* Fila con los botones redondeados de categorías (Todos, Hamburguesas,
    Pizzas, etc). Uso flex-wrap para que si no entran todos en una fila,
@@ -742,7 +741,7 @@ nav.links a:hover {
   font-weight: 600;
 }
 
-/* ============ GRILLA DE PRODUCTOS ============ */
+/* grilla de productos */
 
 /* Acá se acomodan todas las tarjetas de producto. Uso grid en vez
    de flex porque necesito que se armen

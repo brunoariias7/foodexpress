@@ -2,180 +2,173 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodExpress - Catalogo de productos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodExpress - Catalogo de productos</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<header class="navbar">
+  <header class="navbar">
     <div class="logo">Food<span>Express</span></div>
     <nav class="links">
-        <a href="#">Inicio</a>
-        <a href="#">Menu</a>
-        <a href="#">Productos</a>
-        <a href="#">Contacto</a>
+      <a href="#">Inicio</a>
+      <a href="#">Menu</a>
+      <a href="#">Productos</a>
+      <a href="#">Contacto</a>
     </nav>
-    <div class="nav-icons"></div>
-        <span>🔔</span>
-        <button class="cart-btn" id="cartBtn"🛒<span class="cart-count" id="cartCount">0</span></button>
+    <div class="nav-icons">
+      <span>🔔</span>
+      <button class="cart-btn" id="cartBtn">🛒<span class="cart-count" id="cartCount">0</span></button>
     </div>
-</header>
+  </header>
 
- <section class="hero">
+  <section class="hero">
     <h1>Nuestros Productos</h1>
     <p>Elegi lo que mas te guste</p>
- </section>
+  </section>
 
-
-<div class="controls">
-  <div class="search-box">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" id="searchInput" placeholder="Buscar productos...">
-  </div>
-  <div class="sort-box">
-    Ordenar por:
-    <select id="sortSelect">
-      <option value="popular">Más populares</option>
-      <option value="price-asc">Precio: menor a mayor</option>
-      <option value="price-desc">Precio: mayor a menor</option>
-      <option value="name">Nombre (A-Z)</option>
-    </select>
-  </div>
-</div>
-
-
-<div class="categories">
-  <button class="pill active">Todos</button>
-  <button class="pill">Hamburguesas</button>
-  <button class="pill">Pizzas</button>
-  <button class="pill">Empanadas</button>
-  <button class="pill">Sándwiches</button>
-  <button class="pill">Bebidas</button>
-</div>
-
-<div class="grid">
-
-  <div class="card">
-    <img src="imagenes/andres.burgaClasica.jpg" alt="Hamburguesa Clásica">
-    <div class="card-body">
-      <h3>Hamburguesa Clásica</h3>
-      <div class="price-row">
-        <span class="price">$9.500</span>
-        <button class="add-btn">+</button>
-      </div>
+  <div class="controls">
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+      <input type="text" id="searchInput" placeholder="Buscar productos...">
+    </div>
+    <div class="sort-box">
+      Ordenar por:
+      <select id="sortSelect">
+        <option value="popular">Más populares</option>
+        <option value="price-asc">Precio: menor a mayor</option>
+        <option value="price-desc">Precio: mayor a menor</option>
+        <option value="name">Nombre (A-Z)</option>
+      </select>
     </div>
   </div>
 
-  <div class="card">
-    <img src="imagenes/andres.burgaBacon" alt="Hamburguesa Bacon">
-    <div class="card-body">
-      <h3>Hamburguesa Bacon</h3>
-      <div class="price-row">
-        <span class="price">$13.200</span>
-        <button class="add-btn">+</button>
-      </div>
-    </div>
+  <div class="categories">
+    <button class="pill active">Todos</button>
+    <button class="pill">Hamburguesas</button>
+    <button class="pill">Pizzas</button>
+    <button class="pill">Empanadas</button>
+    <button class="pill">Sándwiches</button>
+    <button class="pill">Bebidas</button>
   </div>
 
-  <div class="card">
-    <img src="imagenes/andres.burgaBBQ.jpg" alt="Hamburguesa BBQ">
-    <div class="card-body">
-      <h3>Hamburguesa BBQ</h3>
-      <div class="price-row">
-        <span class="price">$15.000</span>
-        <button class="add-btn">+</button>
+  <div class="grid">
+
+    <div class="card">
+      <img src="imagenes/andres.burgaClasica.jpg" alt="Hamburguesa Clásica">
+      <div class="card-body">
+        <h3>Hamburguesa Clásica</h3>
+        <div class="price-row">
+          <span class="price">$9.500</span>
+          <button class="add-btn">+</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="imagenes/andres.pizzaMozarella.jpg" alt="Pizza Mozzarella">
-    <div class="card-body">
-      <h3>Pizza Mozzarella</h3>
-      <div class="price-row">
-        <span class="price">$24.500</span>
-        <button class="add-btn">+</button>
+    <div class="card">
+      <img src="imagenes/andres.burgaBacon.jpg" alt="Hamburguesa Bacon">
+      <div class="card-body">
+        <h3>Hamburguesa Bacon</h3>
+        <div class="price-row">
+          <span class="price">$13.200</span>
+          <button class="add-btn">+</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="imagenes/andres.pizzaEspecial.jpg" alt="Pizza Especial">
-    <div class="card-body">
-      <h3>Pizza de Higos con Jamon Serrano</h3>
-      <div class="price-row">
-        <span class="price">$30.000</span>
-        <button class="add-btn">+</button>
+    <div class="card">
+      <img src="imagenes/andres.burgaBBQ.jpg" alt="Hamburguesa BBQ">
+      <div class="card-body">
+        <h3>Hamburguesa BBQ</h3>
+        <div class="price-row">
+          <span class="price">$15.000</span>
+          <button class="add-btn">+</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="imagenes/andres.pizzaPepperoni" alt="Pizza Pepperoni">
-    <div class="card-body">
-      <h3>Pizza Pepperoni</h3>
-      <div class="price-row">
-        <span class="price">$27.500</span>
-        <button class="add-btn">+</button>
+    <div class="card">
+      <img src="imagenes/andres.pizzaMozarella.jpg" alt="Pizza Mozzarella">
+      <div class="card-body">
+        <h3>Pizza Mozzarella</h3>
+        <div class="price-row">
+          <span class="price">$24.500</span>
+          <button class="add-btn">+</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="imagenes/empanadas.jfif" alt="Empanadas (6u)">
-    <div class="card-body">
-      <h3>Empanadas (12u)</h3>
-      <h3>Empanadas (6u)</h3>
-      <div class="price-row">
-        <span class="price">(12u)$23.200</span>
-        <span class=""price>(6u) $17.000</span>
-        <button class="add-btn">+</button>
+    <div class="card">
+      <img src="imagenes/andres.pizzaEspecial.jpg" alt="Pizza Especial">
+      <div class="card-body">
+        <h3>Pizza de Higos con Jamon Serrano</h3>
+        <div class="price-row">
+          <span class="price">$30.000</span>
+          <button class="add-btn">+</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="imagenes/andres.sandwichMiga"Sándwich de Miga">
-    <div class="card-body">
-      <h3>Sandwich de Miga</h3>
-      <div class="price-row">
-        <span class="price">(12u)$20.000</span>
-        <button class="add-btn">+</button>
+    <div class="card">
+      <img src="imagenes/andres.pizzaPepperoni.jpg" alt="Pizza Pepperoni">
+      <div class="card-body">
+        <h3>Pizza Pepperoni</h3>
+        <div class="price-row">
+          <span class="price">$27.500</span>
+          <button class="add-btn">+</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card">
-    <img src="imagenes/andres.cocaCola.jpeg" alt="Coca Cola 1.5L">
-    <div class="card-body">
-      <h3>Coca Cola 1.5L</h3>
-      <div class="price-row">
-        <span class="price">$3.800</span>
-        <button class="add-btn">+</button>
+    <div class="card">
+      <img src="imagenes/empanadas.jfif" alt="Empanadas">
+      <div class="card-body">
+        <h3>Empanadas</h3>
+        <div class="price-row">
+          <span class="price">12u $23.200 / 6u $17.000</span>
+          <button class="add-btn">+</button>
+        </div>
       </div>
     </div>
+
+    <div class="card">
+      <img src="imagenes/andres.sandwichMiga.jpg" alt="Sándwich de Miga">
+      <div class="card-body">
+        <h3>Sandwich de Miga</h3>
+        <div class="price-row">
+          <span class="price">$20.000</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="imagenes/andres.cocaCola.jpeg" alt="Coca Cola 1.5L">
+      <div class="card-body">
+        <h3>Coca Cola 1.5L</h3>
+        <div class="price-row">
+          <span class="price">$3.800</span>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-</div>
+  <footer>
+    <div>© 2026 FoodExpress. Todos los derechos reservados.</div>
+    <div class="socials"><span>📷</span><span>📘</span></div>
+  </footer>
 
+  <div id="toast"></div>
 
-
-
-
-
-
-<footer>
-  <div>© 2026 FoodExpress. Todos los derechos reservados.</div>
-  <div class="socials"><span>📷</span><span>📘</span></div>
-</footer>
-
-<div id="toast"></div>
-    
 </body>
 
 </html>
