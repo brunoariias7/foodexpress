@@ -500,8 +500,11 @@ footer p {
 /* Fin parte de Bruno */
 
 
-
 /*Andres */
+
+/* Acá defino los colores y algunos valores que uso en toda la página, 
+   así si después quiero cambiar el naranja lo cambio una sola vez acá 
+   y se actualiza en todos lados donde lo usé */
 :root {
   --orange: #f5821f;
   --orange-dark: #e56f0a;
@@ -513,10 +516,14 @@ footer p {
   --border: #eaeaea;
 }
 
+/* Esto hace que cuando le pongo padding o border a algo, no se me
+   agrande el tamaño total del elemento (más fácil para calcular medidas) */
 * {
   box-sizing: border-box;
 }
 
+/* Estilos generales de toda la página: le saco el margen que trae
+   por defecto el navegador y defino la tipografía y el fondo gris clarito */
 body {
   margin: 0;
   font-family: 'Segoe UI', Roboto, Arial, sans-serif;
@@ -524,7 +531,10 @@ body {
   color: var(--text);
 }
 
-/* NAVBAR */
+/* ============ BARRA DE NAVEGACIÓN (arriba de todo) ============ */
+
+/* La barra negra de arriba: pongo el logo a la izquierda, el menú 
+   en el medio y los iconos a la derecha usando flexbox */
 header.navbar {
   background: var(--dark);
   color: #fff;
@@ -534,21 +544,27 @@ header.navbar {
   padding: 16px 32px;
 }
 
+/* El texto "FoodExpress" */
 .logo {
   font-size: 20px;
   font-weight: 700;
 }
 
+/* La parte "Express" del logo la pinto de naranja para que se destaque */
 .logo span {
   color: var(--orange);
 }
 
+/* El grupo de links del menú (Inicio, Menú, Productos, Contacto),
+   los separo con gap para no tener que andar poniendo margin a cada uno */
 nav.links {
   display: flex;
   gap: 28px;
   align-items: center;
 }
 
+/* Le saco el subrayado a los links y los pongo blancos, un poco 
+   transparentes para que no compitan tanto con el logo */
 nav.links a {
   color: #fff;
   text-decoration: none;
@@ -556,17 +572,23 @@ nav.links a {
   opacity: .9;
 }
 
+/* Cuando el mouse pasa por arriba de un link, se pone naranja y 
+   se ve completo (sin la transparencia) */
 nav.links a:hover {
   opacity: 1;
   color: var(--orange);
 }
 
+/* Contenedor de los iconos de la derecha (campana y carrito) */
 .nav-icons {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
+/* El botón del carrito de compras. Le pongo position relative
+   porque adentro va el numerito que indica cuántos productos hay,
+   y ese numerito se posiciona en base a este botón */
 .cart-btn {
   position: relative;
   background: none;
@@ -576,6 +598,8 @@ nav.links a:hover {
   cursor: pointer;
 }
 
+/* El circulito naranja con el número que aparece arriba del carrito
+   (por ejemplo cuando agregás 2 productos, dice "2") */
 .cart-count {
   position: absolute;
   top: -8px;
@@ -591,7 +615,9 @@ nav.links a:hover {
   justify-content: center;
 }
 
-/* HERO / TITLE */
+/* ============ TÍTULO PRINCIPAL ============ */
+
+/* El bloque de "Nuestros productos" con el subtítulo, centrado */
 .hero {
   text-align: center;
   padding: 36px 16px 20px;
@@ -608,7 +634,11 @@ nav.links a:hover {
   font-size: 14px;
 }
 
-/* CONTROLS */
+/* ============ BUSCADOR Y ORDENAR POR ============ */
+
+/* Fila donde van el buscador y el select de "Ordenar por", uno al lado
+   del otro. Con flex-wrap hace que si la pantalla es chica, se acomoden
+   uno debajo del otro en vez de aplastarse */
 .controls {
   max-width: 1100px;
   margin: 0 auto;
@@ -620,6 +650,9 @@ nav.links a:hover {
   flex-wrap: wrap;
 }
 
+/* La cajita blanca donde está el ícono de lupa y el input de texto.
+   flex: 1 hace que ocupe todo el espacio que pueda, así el buscador
+   es más ancho que el select */
 .search-box {
   flex: 1;
   min-width: 220px;
@@ -631,6 +664,8 @@ nav.links a:hover {
   padding: 10px 14px;
 }
 
+/* El input de texto en sí, le saco el borde por defecto porque ya
+   tiene el borde de la cajita que lo contiene */
 .search-box input {
   border: none;
   outline: none;
@@ -639,10 +674,13 @@ nav.links a:hover {
   background: transparent;
 }
 
+/* El ícono de la lupita, le bajo la opacidad para que no sea tan
+   fuerte visualmente */
 .search-box svg {
   opacity: .5;
 }
 
+/* Contenedor del texto "Ordenar por:" junto con el select */
 .sort-box {
   display: flex;
   align-items: center;
@@ -652,6 +690,7 @@ nav.links a:hover {
   white-space: nowrap;
 }
 
+/* El desplegable (select) donde se elige el orden de los productos */
 .sort-box select {
   padding: 9px 12px;
   border-radius: 8px;
@@ -661,7 +700,11 @@ nav.links a:hover {
   color: var(--text);
 }
 
-/* CATEGORY PILLS */
+/* ============ BOTONES DE CATEGORÍA (PILLS) ============ */
+
+/* Fila con los botones redondeados de categorías (Todos, Hamburguesas,
+   Pizzas, etc). Uso flex-wrap para que si no entran todos en una fila,
+   pasen a la siguiente */
 .categories {
   max-width: 1100px;
   margin: 18px auto 0;
@@ -671,6 +714,8 @@ nav.links a:hover {
   flex-wrap: wrap;
 }
 
+/* Estilo base de cada botón de categoría (por eso el nombre "pill",
+   que significa pastilla, porque tiene esa forma ovalada) */
 .pill {
   padding: 9px 18px;
   border-radius: 20px;
@@ -682,10 +727,14 @@ nav.links a:hover {
   color: var(--text);
 }
 
+/* Cuando paso el mouse por un botón de categoría, el borde se pone
+   naranja para dar una pista de que se puede clickear */
 .pill:hover {
   border-color: var(--orange);
 }
 
+/* Esta clase se le agrega a la categoría que está seleccionada en
+   ese momento, para que se note cuál está activa (fondo naranja) */
 .pill.active {
   background: var(--orange);
   color: #fff;
@@ -693,166 +742,7 @@ nav.links a:hover {
   font-weight: 600;
 }
 
-/* PRODUCT GRID */
-.grid {
-  max-width: 1100px;
-  margin: 26px auto;
-  padding: 0 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 22px;
-}
+/* ============ GRILLA DE PRODUCTOS ============ */
 
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .15s, box-shadow .15s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
-}
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-  background: #eee;
-}
-
-.card-body {
-  padding: 14px 16px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.card-body h3 {
-  margin: 0;
-  font-size: 15px;
-}
-
-.price-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.price {
-  font-weight: 700;
-  color: var(--dark);
-  font-size: 15px;
-}
-
-.add-btn {
-  background: var(--orange);
-  color: #fff;
-  border: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.add-btn:hover {
-  background: var(--orange-dark);
-}
-
-.add-btn.added {
-  background: #2e7d32;
-}
-
-.empty {
-  text-align: center;
-  color: var(--muted);
-  padding: 40px 0;
-  grid-column: 1/-1;
-}
-
-/* FOOTER */
-footer {
-  background: var(--dark);
-  color: #ccc;
-  padding: 18px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 13px;
-  margin-top: 30px;
-}
-
-footer .socials {
-  display: flex;
-  gap: 14px;
-}
-
-footer .socials span {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #2a2a2a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* TOAST */
-#toast {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--dark);
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-size: 14px;
-  opacity: 0;
-  pointer-events: none;
-  transition: .25s;
-  z-index: 50;
-}
-
-#toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-@media(max-width:700px) {
-  nav.links {
-    display: none;
-  }
-
-  header.navbar {
-    padding: 14px 18px;
-  }
-
-  .controls {
-    padding: 0 16px;
-  }
-
-  .categories {
-    padding: 0 16px;
-  }
-
-  .grid {
-    padding: 0 16px;
-  }
-
-  footer {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    padding: 18px;
-  }
-}
-
-/*fin andres*/
+/* Acá se acomodan todas las tarjetas de producto. Uso grid en vez
+   de flex porque necesito que se armen
