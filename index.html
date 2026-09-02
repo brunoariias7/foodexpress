@@ -4,15 +4,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>FoodExpress</title>
+
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-    <h1>FoodExpress</h1>
-    <p>Bienvenido a FoodExpress, tu destino para la comida rápida y deliciosa.</p>
+    <header class="navbar">
+
+        <div class="logo">
+            <span>Food</span>Express
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="#">Menú</a>
+            <a href="#">Productos</a>
+            <a href="#">Contacto</a>
+        </nav>
+
+        <div class="iconos">
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+
+    </header>
+
+    <section class="banner">
+
+        <div class="texto-banner">
+
+            <h1>
+                Tu comida<br>
+                favorita,<br>
+                <span>donde quieras</span>
+            </h1>
+
+            <p>
+                Pedí online de forma rápida y segura.<br>
+                Delivery o retiro en el local.
+            </p>
+
+            <div class="botones">
+
+                <a href="#" class="boton principal">
+                    Pedir ahora
+                </a>
+
+                <a href="#" class="boton secundario">
+                    Ver menú
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="imagen-banner">
+            <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa">
+        </div>
+
+    </section>
+
+    <section class="beneficios">
+
+        <div class="beneficio">
+            (logo)
+            <h3>Delivery rápido</h3>
+            <p>En las mejores zonas</p>
+        </div>
+
+        <div class="beneficio">
+            (logo)
+            <h3>Pagos seguros</h3>
+            <p>Múltiples métodos</p>
+        </div>
+
+        <div class="beneficio">
+            (logo)
+            <h3>Seguimiento</h3>
+            <p>Tiempo real</p>
+        </div>
+
+    </section>
+
+    <section class="seccion">
+
+        <div class="titulo-seccion">
+            <h2>Categorías</h2>
+        </div>
+
+
+        <div class="categorias">
+
+            <div class="categoria">
+
+                <img src="imagenes/hamburguesa.jpg" alt="Hamburguesas">
+
+                <p>Hamburguesas</p>
+
+            </div>
+
+
+            <div class="categoria">
+
+                <img src="imagenes/pizza.jpg" alt="Pizzas">
+
+                <p>Pizzas</p>
+
+            </div>
+
+
+            <div class="categoria">
+
+                <img src="imagenes/empanadas.jfif" alt="Empanadas">
+
+                <p>Empanadas</p>
+
+            </div>
+
+
+            <div class="categoria">
+
+                <img src="imagenes/sandwich.jpg" alt="Sándwiches">
+
+                <p>Sándwiches</p>
+
+            </div>
+
+
+            <div class="categoria">
+
+                <img src="imagenes/bebida.jpg" alt="Bebidas">
+
+                <p>Bebidas</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="seccion productos-seccion">
+
+        <div class="titulo-productos">
+
+            <h2>Productos destacados</h2>
+
+            <a href="#">
+                Ver todos
+            </a>
+
+        </div>
+
+
+        <div class="productos">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa clásica">
+
+                <div class="producto-info">
+
+                    <h3>Hamburguesa Clásica</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$4.500</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto">
+
+                <img src="imagenes/pizza.jpg" alt="Pizza mozzarella">
+
+                <div class="producto-info">
+
+                    <h3>Pizza Mozzarella</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$4.800</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto">
+
+                <img src="imagenes/empanadas.jfif" alt="Empanadas">
+
+                <div class="producto-info">
+
+                    <h3>Empanadas (6u)</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$3.200</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="producto">
+
+                <img src="imagenes/sandwich.jpg" alt="Sándwich de Mila">
+
+                <div class="producto-info">
+
+                    <h3>Sándwich de Mila</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$4.200</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="delivery">
+
+        <div class="delivery-texto">
+
+            <h2>¿Fuera de la zona?</h2>
+
+            <p>
+                Ingresá tu dirección y verificá
+                la disponibilidad de envío.
+            </p>
+
+        </div>
+
+
+        <div class="direccion">
+
+            <input type="text" placeholder="Ingresá tu dirección">
+
+            <button>
+                Verificar
+            </button>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-logo">
+            <span>Food</span>Express
+        </div>
+
+        <p>
+            Tu comida favorita, donde quieras.
+        </p>
+
+        <p class="copyright">
+            © 2026 FoodExpress - Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
 
 </body>
 
