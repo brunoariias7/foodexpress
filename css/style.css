@@ -549,12 +549,12 @@ header.navbar {
   font-weight: 700;
 }
 
-/* La parte "Express" del logo la pinto de naranja para que se destaque */
+/* la parte "express" del logo la pinto de naranja para que se destaque */
 .logo span {
   color: var(--orange);
 }
 
-/* El grupo de links del menú (Inicio, Menú, Productos, Contacto),
+/* el grupo de links del menu inicio, menú, productos, contacto),
    los separo con gap para no tener que andar poniendo margin a cada uno */
 nav.links {
   display: flex;
@@ -562,7 +562,7 @@ nav.links {
   align-items: center;
 }
 
-/* Le saco el subrayado a los links y los pongo blancos, un poco 
+/* le saco el subrayado a los links y los pongo blancos, un poco 
    transparentes para que no compitan tanto con el logo */
 nav.links a {
   color: #fff;
@@ -571,23 +571,23 @@ nav.links a {
   opacity: .9;
 }
 
-/* Cuando el mouse pasa por arriba de un link, se pone naranja y 
+/* cuando el mouse pasa por arriba de un link, se pone naranja y 
    se ve completo (sin la transparencia) */
 nav.links a:hover {
   opacity: 1;
   color: var(--orange);
 }
 
-/* Contenedor de los iconos de la derecha (campana y carrito) */
+/* contenedor de los iconos de la derecha (campana y carrito) */
 .nav-icons {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
-/* El botón del carrito de compras. Le pongo position relative
-   porque adentro va el numerito que indica cuántos productos hay,
-   y ese numerito se posiciona en base a este botón */
+/* el boton del carrito de compras. le pongo position relative
+   porque adentro va el numerito que indica cuantos productos hay,
+   y ese numerito se posiciona en base a este boton */
 .cart-btn {
   position: relative;
   background: none;
@@ -616,7 +616,7 @@ nav.links a:hover {
 
 /* titulo principal*/
 
-/* El bloque de "Nuestros productos" con el subtítulo, centrado */
+/* El bloque de "nuestros productos" con el subtítulo, centrado */
 .hero {
   text-align: center;
   padding: 36px 16px 20px;
@@ -635,8 +635,8 @@ nav.links a:hover {
 
 /* buscador y ordenar por */
 
-/* Fila donde van el buscador y el select de "Ordenar por", uno al lado
-   del otro. Con flex-wrap hace que si la pantalla es chica, se acomoden
+/* Fila donde van el buscador y el select de ordenar por, uno al lado
+   del otro. con flex-wrap hace que si la pantalla es chica, se acomoden
    uno debajo del otro en vez de aplastarse */
 .controls {
   max-width: 1100px;
@@ -649,9 +649,9 @@ nav.links a:hover {
   flex-wrap: wrap;
 }
 
-/* La cajita blanca donde está el ícono de lupa y el input de texto.
+/* la cajita blanca donde esta el icono de lupa y el input de texto.
    flex: 1 hace que ocupe todo el espacio que pueda, así el buscador
-   es más ancho que el select */
+   es mas ancho que el select */
 .search-box {
   flex: 1;
   min-width: 220px;
@@ -663,7 +663,7 @@ nav.links a:hover {
   padding: 10px 14px;
 }
 
-/* El input de texto en sí, le saco el borde por defecto porque ya
+/* El input de texto en si, le saco el borde por defecto porque ya
    tiene el borde de la cajita que lo contiene */
 .search-box input {
   border: none;
@@ -673,13 +673,13 @@ nav.links a:hover {
   background: transparent;
 }
 
-/* El ícono de la lupita, le bajo la opacidad para que no sea tan
+/* el icono de la lupita, le bajo la opacidad para que no sea tan
    fuerte visualmente */
 .search-box svg {
   opacity: .5;
 }
 
-/* Contenedor del texto "Ordenar por:" junto con el select */
+/* contenedor del texto Ordenar por: junto con el select */
 .sort-box {
   display: flex;
   align-items: center;
@@ -689,7 +689,7 @@ nav.links a:hover {
   white-space: nowrap;
 }
 
-/* El desplegable (select) donde se elige el orden de los productos */
+/* el desplegable (select) donde se elige el orden de los productos */
 .sort-box select {
   padding: 9px 12px;
   border-radius: 8px;
@@ -701,7 +701,7 @@ nav.links a:hover {
 
 /* botones de categoria */
 
-/* Fila con los botones redondeados de categorías (Todos, Hamburguesas,
+/* es la fila con los botones redondeados de categorias (Todos, Hamburguesas,
    Pizzas, etc). Uso flex-wrap para que si no entran todos en una fila,
    pasen a la siguiente */
 .categories {
@@ -713,8 +713,7 @@ nav.links a:hover {
   flex-wrap: wrap;
 }
 
-/* Estilo base de cada botón de categoría (por eso el nombre "pill",
-   que significa pastilla, porque tiene esa forma ovalada) */
+/* estilo base de cada boton de categoria  */
 .pill {
   padding: 9px 18px;
   border-radius: 20px;
@@ -726,14 +725,14 @@ nav.links a:hover {
   color: var(--text);
 }
 
-/* Cuando paso el mouse por un botón de categoría, el borde se pone
+/* cuando paso el mouse por un boton de categoria, el borde se pone
    naranja para dar una pista de que se puede clickear */
 .pill:hover {
   border-color: var(--orange);
 }
 
-/* Esta clase se le agrega a la categoría que está seleccionada en
-   ese momento, para que se note cuál está activa (fondo naranja) */
+/* esta clase se le agrega a la categoria que esta seleccionada en
+   ese momento, para que se note cual esta activa (fondo naranja) */
 .pill.active {
   background: var(--orange);
   color: #fff;
@@ -743,11 +742,10 @@ nav.links a:hover {
 
 /* grilla de productos */
 
-/* Acá se acomodan todas las tarjetas de producto. Uso grid en vez
+/* acomodo todas las tarjetas de producto. uso grid en vez
    de flex porque necesito que se armen
 
-   filas y columnas automáticas según el ancho de la pantalla:
-   minmax(220px, 1fr) significa que cada tarjeta mide como mínimo
+   dsp filas y columnas automaticas segun el ancho de la pantalla significa que cada tarjeta mide como mínimo
    220px, y si sobra espacio se reparte */
 .grid {
   max-width: 1100px;
@@ -758,8 +756,8 @@ nav.links a:hover {
   gap: 22px;
 }
 
-/* Cada tarjeta de producto individual. overflow hidden es importante
-   para que la imagen no se salga de los bordes redondeados */
+/* cada tarjeta de producto individual. overflow hidden es importante
+   para que la imagen no se salga de los bordes */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -770,16 +768,16 @@ nav.links a:hover {
   transition: transform .15s, box-shadow .15s;
 }
 
-/* Efecto al pasar el mouse por una tarjeta: se levanta un poco y le
-   aparece una sombra, para que se vea más interactiva */
+/* efecto al pasar el mouse por una tarjeta: se levanta un poco y le
+   aparece una sombra, para que se vea mas interactiva */
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
 }
 
-/* La foto del producto. Esta es la regla clave: le pongo un ancho
+/* la foto del product0, le pongo un ancho
    del 100% de la tarjeta pero una altura fija de 150px, y con
-   object-fit cover hago que la imagen se recorte y llene ese
+   object-fit cover hago que la imagen se llene ese
    espacio sin deformarse, sea cual sea su tamaño original */
 .card img {
   width: 100%;
@@ -789,7 +787,7 @@ nav.links a:hover {
   background: #eee;
 }
 
-/* La parte de abajo de la tarjeta, donde va el nombre y el precio */
+/* la parte de abajo de la tarjeta, donde va el nombre y el precio */
 .card-body {
   padding: 14px 16px 16px;
   display: flex;
@@ -802,7 +800,7 @@ nav.links a:hover {
   font-size: 15px;
 }
 
-/* Fila donde va el precio a la izquierda y el botón de "+" a la
+/* fila donde va el precio a la izquierda y el botón de + a la
    derecha, separados con space-between */
 .price-row {
   display: flex;
@@ -816,7 +814,7 @@ nav.links a:hover {
   font-size: 15px;
 }
 
-/* El botón naranja con el "+" para agregar el producto al carrito */
+/* el boton naranja con el + para agregar el producto al carrito */
 .add-btn {
   background: var(--orange);
   color: #fff;
@@ -829,19 +827,19 @@ nav.links a:hover {
   line-height: 1;
 }
 
-/* Al pasar el mouse por el botón, se oscurece un poco el naranja */
+/* al pasar el mouse por el boton, se oscurece un poco el naranja */
 .add-btn:hover {
   background: var(--orange-dark);
 }
 
-/* Esta clase se activa un instante cuando agregás el producto al
-   carrito, el botón se pone verde como confirmación visual */
+/* esta clase se activa un instante cuando agregás el producto al
+   carrito, el botón se pone verde como confirmacion visual */
 .add-btn.added {
   background: #2e7d32;
 }
 
-/* Mensaje que aparece cuando el buscador o el filtro no encuentra
-   ningún producto. grid-column 1/-1 hace que ocupe todo el ancho
+/* mensaje que aparece cuando el buscador o el filtro no encuentra
+   ningún producto. grid-column hace que ocupe todo el ancho
    de la grilla, no solo una columna */
 .empty {
   text-align: center;
@@ -852,7 +850,7 @@ nav.links a:hover {
 
 /* pie de pagina */
 
-/* Barra negra de abajo con el copyright y los íconos de redes */
+/* barra negra de abajo con el copyright y los íconos de redes */
 footer {
   background: var(--dark);
   color: #ccc;
@@ -881,8 +879,8 @@ footer .socials span {
 
 /* aviso flotante (toast) */
 
-/* El cartelito que aparece abajo cuando agregás un producto.
-   Por defecto está escondido: opacity 0 y corrido hacia abajo */
+/* el cartelito que aparece abajo cuando agregás un producto.
+   opacity 0 y corrido hacia abajo */
 #toast {
   position: fixed;
   bottom: 24px;
