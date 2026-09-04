@@ -745,3 +745,196 @@ nav.links a:hover {
 
 /* Acá se acomodan todas las tarjetas de producto. Uso grid en vez
    de flex porque necesito que se armen
+
+   filas y columnas automáticas según el ancho de la pantalla:
+   minmax(220px, 1fr) significa que cada tarjeta mide como mínimo
+   220px, y si sobra espacio se reparte */
+.grid {
+  max-width: 1100px;
+  margin: 26px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* Cada tarjeta de producto individual. overflow hidden es importante
+   para que la imagen no se salga de los bordes redondeados */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .15s, box-shadow .15s;
+}
+
+/* Efecto al pasar el mouse por una tarjeta: se levanta un poco y le
+   aparece una sombra, para que se vea más interactiva */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+}
+
+/* La foto del producto. Esta es la regla clave: le pongo un ancho
+   del 100% de la tarjeta pero una altura fija de 150px, y con
+   object-fit cover hago que la imagen se recorte y llene ese
+   espacio sin deformarse, sea cual sea su tamaño original */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  background: #eee;
+}
+
+/* La parte de abajo de la tarjeta, donde va el nombre y el precio */
+.card-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* Fila donde va el precio a la izquierda y el botón de "+" a la
+   derecha, separados con space-between */
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--dark);
+  font-size: 15px;
+}
+
+/* El botón naranja con el "+" para agregar el producto al carrito */
+.add-btn {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Al pasar el mouse por el botón, se oscurece un poco el naranja */
+.add-btn:hover {
+  background: var(--orange-dark);
+}
+
+/* Esta clase se activa un instante cuando agregás el producto al
+   carrito, el botón se pone verde como confirmación visual */
+.add-btn.added {
+  background: #2e7d32;
+}
+
+/* Mensaje que aparece cuando el buscador o el filtro no encuentra
+   ningún producto. grid-column 1/-1 hace que ocupe todo el ancho
+   de la grilla, no solo una columna */
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 0;
+  grid-column: 1/-1;
+}
+
+/* pie de pagina */
+
+/* Barra negra de abajo con el copyright y los íconos de redes */
+footer {
+  background: var(--dark);
+  color: #ccc;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+footer .socials {
+  display: flex;
+  gap: 14px;
+}
+
+footer .socials span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* aviso flotante (toast) */
+
+/* El cartelito que aparece abajo cuando agregás un producto.
+   Por defecto está escondido: opacity 0 y corrido hacia abajo */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--dark);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  z-index: 50;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* responsive (celulares) */
+
+/* aca para cuando la pantalla es chica (menos de 700px).
+   Escondo el menu de links para no saturar y achico los paddings */
+@media(max-width:700px) {
+  nav.links {
+    display: none;
+  }
+
+  header.navbar {
+    padding: 14px 18px;
+  }
+
+  .controls {
+    padding: 0 16px;
+  }
+
+  .categories {
+    padding: 0 16px;
+  }
+
+  .grid {
+    padding: 0 16px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 18px;
+  }
+}
+
+/*fin andres*/
