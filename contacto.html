@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,25 +16,20 @@
     <!-- BARRA DE NAVEGACIÓN -->
 
     <header class="navbar">
+    <a href="index.html" class="logo"><span>Food</span>Express</a>
+    <nav class="links">
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="pedidos.html">Pedidos</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-icons">
+        <a href="pedidos.html" aria-label="Ver pedidos">🛒</a>
+        <a href="login.html" aria-label="Iniciar sesión">♙</a>
+    </div>
+</header>
 
-        <div class="logo">
-            <span>Food</span>Express
-        </div>
-
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="menu.html">Menu</a>
-            <a href="pedidos.html">Pedidos</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-
-        <div class="iconos">
-            <a href="pedidos.html" aria-label="Ver pedidos"></a>
-            <a href="login.html" aria-label="Iniciar sesión"></a>
-        </div>
-
-    </header>
 
     <!-- SECCIÓN DE CONTACTO -->
 
@@ -64,22 +60,38 @@
 
                     <label for="nombre">Nombre</label>
 
-                    <input type="text" id="nombre" placeholder="Ingresá tu nombre">
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Ingresá tu nombre"
+                    >
 
 
                     <label for="email">Email</label>
 
-                    <input type="email" id="email" placeholder="Ingresá tu email">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Ingresá tu email"
+                    >
 
 
                     <label for="asunto">Asunto</label>
 
-                    <input type="text" id="asunto" placeholder="¿En qué podemos ayudarte?">
+                    <input
+                        type="text"
+                        id="asunto"
+                        placeholder="¿En qué podemos ayudarte?"
+                    >
 
 
                     <label for="mensaje">Mensaje</label>
 
-                    <textarea id="mensaje" rows="5" placeholder="Escribí tu mensaje..."></textarea>
+                    <textarea
+                        id="mensaje"
+                        rows="5"
+                        placeholder="Escribí tu mensaje..."
+                    ></textarea>
 
 
                     <button type="submit">
