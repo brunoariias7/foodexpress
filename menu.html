@@ -1,162 +1,281 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <title>Menu - FoodExpress</title>
-    </head>
-    <body>
-        
-       <header class="navbar">
 
-        <div class="logo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+    <a href="index.html" class="logo"><span>Food</span>Express</a>
+    <nav class="links">
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="pedidos.html">Pedidos</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-icons">
+        <a href="pedidos.html" aria-label="Ver pedidos">🛒</a>
+        <a href="login.html" aria-label="Iniciar sesión">♙</a>
+    </div>
+</header>
+
+    <section class="banner">
+
+        <div class="texto-banner">
+
+            <h1>
+                Tu comida<br>
+                favorita,<br>
+                <span>donde quieras</span>
+            </h1>
+
+            <p>
+                Pedí online de forma rápida y segura.<br>
+                Delivery o retiro en el local.
+            </p>
+
+            <div class="botones">
+
+                <a href="pedidos.html" class="boton principal">
+                    Pedir ahora
+                </a>
+
+                <a href="menu.html" class="boton secundario">
+                    Ver menú
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="imagen-banner">
+            <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa">
+        </div>
+
+    </section>
+
+    <section class="beneficios">
+
+        <div class="beneficio">
+            (logo)
+            <h3>Delivery rápido</h3>
+            <p>En las mejores zonas</p>
+        </div>
+
+        <div class="beneficio">
+            (logo)
+            <h3>Pagos seguros</h3>
+            <p>Múltiples métodos</p>
+        </div>
+
+        <div class="beneficio">
+            (logo)
+            <h3>Seguimiento</h3>
+            <p>Tiempo real</p>
+        </div>
+
+    </section>
+
+    <section class="seccion">
+
+        <div class="titulo-seccion">
+            <h2>Categorías</h2>
+        </div>
+
+
+        <div class="categorias">
+
+            <div class="categoria">
+                <a href="menu.html#hamburguesas"><img src="imagenes/hamburguesa.jpg" alt="Hamburguesas"><p>Hamburguesas</p></a>
+            </div>
+
+
+            <div class="categoria">
+                <a href="menu.html#pizzas"><img src="imagenes/pizza.jpg" alt="Pizzas"><p>Pizzas</p></a>
+            </div>
+
+
+            <div class="categoria">
+                <a href="menu.html#empanadas"><img src="imagenes/empanadas.jfif" alt="Empanadas"><p>Empanadas</p></a>
+            </div>
+
+
+            <div class="categoria">
+                <a href="menu.html#sandwiches"><img src="imagenes/sandwich.jpg" alt="Sándwiches"><p>Sándwiches</p></a>
+            </div>
+
+
+            <div class="categoria">
+                <a href="menu.html#bebidas"><img src="imagenes/bebida.jpg" alt="Bebidas"><p>Bebidas</p></a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="seccion productos-seccion">
+
+        <div class="titulo-productos">
+
+            <h2>Productos destacados</h2>
+
+            <a href="menu.html">
+                Ver todos
+            </a>
+
+        </div>
+
+
+        <div class="productos">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img src="imagenes/hamburguesa.jpg" alt="Hamburguesa clásica">
+
+                <div class="producto-info">
+
+                    <h3>Hamburguesa Clásica</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$4.500</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto">
+
+                <img src="imagenes/pizza.jpg" alt="Pizza mozzarella">
+
+                <div class="producto-info">
+
+                    <h3>Pizza Mozzarella</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$4.800</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto">
+
+                <img src="imagenes/empanadas.jfif" alt="Empanadas">
+
+                <div class="producto-info">
+
+                    <h3>Empanadas (6u)</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$3.200</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="producto">
+
+                <img src="imagenes/sandwich.jpg" alt="Sándwich de Mila">
+
+                <div class="producto-info">
+
+                    <h3>Sándwich de Mila</h3>
+
+                    <div class="precio-boton">
+
+                        <p>$4.200</p>
+
+                        <button>+</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="delivery">
+
+        <div class="delivery-texto">
+
+            <h2>¿Fuera de la zona?</h2>
+
+            <p>
+                Ingresá tu dirección y verificá
+                la disponibilidad de envío.
+            </p>
+
+        </div>
+
+
+        <div class="direccion">
+
+            <input type="text" placeholder="Ingresá tu dirección">
+
+            <button>
+                Verificar
+            </button>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-logo">
             <span>Food</span>Express
         </div>
 
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="menu.html">Menu</a>
-            <a href="pedidos.html">Pedidos</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
+        <p>
+            Tu comida favorita, donde quieras.
+        </p>
 
-        <div class="iconos">
-            <a href="pedidos.html" aria-label="Ver pedidos"></a>
-            <a href="login.html" aria-label="Iniciar sesión"></a>
-        </div>
+        <p class="copyright">
+            © 2026 FoodExpress - Todos los derechos reservados.
+        </p>
 
-    </header>
+    </footer>
 
-        <section id="hamburguesas">
-            <h2>Hamburguesas</h2>
-            <div class="productos">
-                <div class="producto">
-                    <img src="imagenes/hamburguesaclasica.jpg.jpeg" alt="hamburguesa clasica">
-                    <h3>Hamburguesa clasica</h3>
-                    <p>Carne, queso (cheddar o mozzarella), lechuga y tomate</p>
-                    <p>$8.500</p>
-                    <button>Agregar al carrito</button>
-                </div>
 
-                <div class="producto">
-                    <img src="imagenes/hamburguesadoble.jpg.jpeg" alt="hamburguesa doble">
-                    <h3>Hamburguesa doble</h3>
-                    <p>Carne, queso, lechuga y tomate</p>
-                    <p>$12.000</p>
-                    <button>Agregar al carrito</button>
-                </div>
 
-                <div class="producto">
-                    <img src="imagenes/hamburguesacompleta.jpg.jpeg" alt="hamburguesa completa">
-                    <h3>Hamburguesa completa</h3>
-                    <p>Carne, queso, jamon, huevo, y papas.</p>
-                    <p>$10.000</p>
-                    <button>Agregar al carrito</button>
-                </div>
-            </div>
-        </section>
+</body>
 
-        <section id="pizzas">
-            <h2>Pizzas</h2>
-            <div class="productos">
-                <div class="producto">
-                    <img src="imagenes/pizzamuzarella.jpg.jpeg" alt="pizza muzarella">
-                <h3>Pizza muzzarella</h3>
-                <p>Salsa de tomate y muzzarella</p>
-                <p>$10.000</p>
-                <button>Agregar al carrito</button>
-                </div>
-
-                <div class="producto">
-                    <img src="imagenes/pizzaespecial.jpg.jpeg" alt="pizza especial">
-                    <h3>Pizza especial</h3>
-                    <p>Muzzarella, jamon y morron</p>
-                    <p>$12.000</p>
-                    <button>Agregar al carrito</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="empanadas">
-            <h2>Empanadas</h2>
-            <div class="productos">
-                <div class="producto">
-                    <img src="imagenes/empanadacarne.jpg.jpeg" alt="empanada de carne">
-                    <h3>Empanada de carne</h3>
-                    <p>Empanada de carne cortada a cuchillo</p>
-                    <p>precio por unidad: $1.500</p>
-                    <button>Agregar al carrito</button>
-                </div>
-
-                <div class="producto">
-                    <img src="imagenes/empanadaJyQ.jpg.jpeg" alt="empanada de jamon y queso">
-                    <h3>Empanada Jamon y Queso</h3>
-                    <p>Empanada rellena de jamon y queso</p>
-                    <p>precio por unidad: $1.500</p>
-                    <button>Agregar al carrito</button>
-                </div>
-            </div>
-        </section>
-        
-        <section id="bebidas">
-            <h2>Bebidas</h2>
-            <div class="productos">
-                <div class="producto">
-                    <img src="imagenes/gaseosa.jpg.jpeg" alt="gaseosa">
-                    <h3>gaseosa</h3>
-                    <p>gaseosa de 500ml</p>
-                    <p>$2.000</p>
-                    <button>Agregar al carrito</button>
-                </div>
-
-                <div class="producto">
-                    <img src="imagenes/aguamineral.jpg.jpeg" alt="agua mineral">
-                    <h3>Agua</h3>
-                    <p>Agua mineral de 500ml</p>
-                    <p>$2.500</p>
-                    <button>Agregar al carrito</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="carrito">
-
-    <h2>Mi carrito</h2>
-
-    <div class="carrito">
-
-        <div class="item-carrito">
-            <h3>Hamburguesa clasica</h3>
-            <p>Precio: $8.500</p>
-            <p>Cantidad: 1</p>
-            <button>−</button>
-            <button>+</button>
-            <button>Eliminar</button>
-        </div>
-
-        <div class="item-carrito">
-            <h3>Pizza muzzarella</h3>
-            <p>Precio: $10.000</p>
-            <p>Cantidad: 1</p>
-            <button>−</button>
-            <button>+</button>
-            <button>Eliminar</button>
-        </div>
-
-    </div>
-
-    <div class="resumen">
-
-        <p>Subtotal: $18.500</p>
-        <p>Envio: $1.200</p>
-        <p>Total: $19.700</p>
-
-        <button>Finalizar compra</button>
-
-    </div>
-
-</section>
-    </body>
 </html>
