@@ -1,149 +1,65 @@
 /* Parte de Andres */
 
-/* agarro los elementos del html que voy a usar mas abajo */
-const grid = document.querySelector(".grid");
-const buscador = document.getElementById("searchInput");
-const selectorOrden = document.getElementById("sortSelect");
-const botonesCategoria = document.querySelectorAll(".pill");
-const contadorCarrito = document.getElementById("cartCount");
-const aviso = document.getElementById("toast");
+/* agarro los elementos del html que voy a usar */
+const enlacesCategoria = document.querySelectorAll(".menu-categorias a");
+const secciones = document.querySelectorAll(".catalogo-seccion");
+const botonesAgregar = document.querySelectorAll(".add-btn");
+const iconoCarrito = document.querySelector(".nav-icons a");
 
-/* guardo todas las tarjetas en una lista, en el mismo orden en que
-   estan escritas en el html. ese orden lo uso para "mas populares" */
-const tarjetas = Array.from(document.querySelectorAll(".card"));
+/* variable donde guardo que categoria esta elegida. si esta vacia
+   es porque se estan viendo todas las secciones */
+let categoriaActiva = "";
 
-/* variables donde voy guardando lo que va eligiendo el usuario */
-let categoriaActiva = "todos";
-let textoBusqueda = "";
-let orden = "popular";
-let cantidadCarrito = 0;
+/* el pedido lo guardo en el navegador con localstorage, asi no se
+   pierde al cambiar de pagina. si todavia no hay nada, arranca vacio */
+let pedido = JSON.parse(localStorage.getItem("pedido")) || [];
 
-/* pasa un texto a minuscula y le saca los acentos, asi si alguien
-   busca "sandwich" tambien encuentra "sándwich" */
-function limpiarTexto(texto) {
-  return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-}
+/* filtro por categoria */
 
-/* las tarjetas no dicen a que categoria pertenecen, asi que la
-   deduzco del nombre buscando una palabra clave */
-function detectarCategoria(nombre) {
-  const n = limpiarTexto(nombre);
-
-  if (n.includes("hamburguesa")) return "hamburguesas";
-  if (n.includes("pizza")) return "pizzas";
-  if (n.includes("empanada")) return "empanadas";
-  if (n.includes("sandwich")) return "sandwiches";
-  if (n.includes("coca") || n.includes("gaseosa") || n.includes("agua")) return "bebidas";
-
-  return "otros";
-}
-
-/* saco el precio como numero a partir del texto de la tarjeta.
-   busco todo lo que empiece con "$" (las empanadas tienen dos precios)
-   y me quedo con el mas barato para poder ordenar */
-function obtenerPrecio(tarjeta) {
-  const texto = tarjeta.querySelector(".price").textContent;
-  const precios = texto.match(/\$\s?[\d.]+/g) || [];
-
-  const numeros = precios.map(function (p) {
-    return Number(p.replace(/\D/g, ""));
+/* muestra solo la seccion elegida y esconde las demas. si no hay
+   ninguna elegida, muestra todas */
+function mostrarCategoria() {
+  secciones.forEach(function (seccion) {
+    if (categoriaActiva === "" || seccion.id === categoriaActiva) {
+      seccion.style.display = "";
+    } else {
+      seccion.style.display = "none";
+    }
   });
 
-  return Math.min.apply(null, numeros);
-}
-
-/* armo una lista con los datos de cada tarjeta (nombre, categoria y
-   precio) una sola vez al empezar, asi no lo calculo en cada click */
-const datos = tarjetas.map(function (tarjeta) {
-  const nombre = tarjeta.querySelector("h3").textContent;
-
-  return {
-    elemento: tarjeta,
-    nombre: nombre,
-    categoria: detectarCategoria(nombre),
-    precio: obtenerPrecio(tarjeta)
-  };
-});
-
-/* mensaje que se muestra cuando no hay ningun resultado. la clase
-   "empty" ya tiene su estilo en el css */
-const mensajeVacio = document.createElement("div");
-mensajeVacio.className = "empty";
-mensajeVacio.textContent = "no se encontraron productos que coincidan con tu busqueda";
-
-/* funcion principal: filtra, ordena y vuelve a mostrar las tarjetas.
-   la llamo cada vez que el usuario toca algo */
-function actualizarCatalogo() {
-
-  /* paso 1: me quedo solo con los productos que cumplen la categoria
-     elegida y lo que se escribio en el buscador */
-  let visibles = datos.filter(function (item) {
-    const coincideCategoria = categoriaActiva === "todos" || item.categoria === categoriaActiva;
-    const coincideBusqueda = limpiarTexto(item.nombre).includes(limpiarTexto(textoBusqueda));
-
-    return coincideCategoria && coincideBusqueda;
-  });
-
-  /* paso 2: ordeno segun lo que eligio en el select. si es "popular"
-     no hago nada porque ya estan en el orden original */
-  if (orden === "price-asc") {
-    visibles.sort(function (a, b) {
-      return a.precio - b.precio;
-    });
-  } else if (orden === "price-desc") {
-    visibles.sort(function (a, b) {
-      return b.precio - a.precio;
-    });
-  } else if (orden === "name") {
-    visibles.sort(function (a, b) {
-      return a.nombre.localeCompare(b.nombre);
-    });
-  }
-
-  /* paso 3: vacio la grilla y vuelvo a poner solo las tarjetas que
-     quedaron, ya en el orden correcto */
-  grid.innerHTML = "";
-
-  if (visibles.length === 0) {
-    grid.appendChild(mensajeVacio);
-    return;
-  }
-
-  visibles.forEach(function (item) {
-    grid.appendChild(item.elemento);
+  /* marco con la clase "active" el link de la categoria elegida */
+  enlacesCategoria.forEach(function (enlace) {
+    const id = enlace.getAttribute("href").replace("#", "");
+    enlace.classList.toggle("active", id === categoriaActiva);
   });
 }
 
-/* botones de categoria: al hacer click guardo cual es (usando el texto
-   del boton), le paso la clase "active" (el naranja) y actualizo */
-botonesCategoria.forEach(function (boton) {
-  boton.addEventListener("click", function () {
-    categoriaActiva = limpiarTexto(boton.textContent);
+/* al hacer click en una categoria, cancelo el salto normal del link
+   y filtro. si toca la que ya estaba elegida, vuelve a mostrar todo */
+enlacesCategoria.forEach(function (enlace) {
+  enlace.addEventListener("click", function (evento) {
+    evento.preventDefault();
 
-    botonesCategoria.forEach(function (b) {
-      b.classList.remove("active");
-    });
-    boton.classList.add("active");
+    const id = enlace.getAttribute("href").replace("#", "");
 
-    actualizarCatalogo();
+    if (categoriaActiva === id) {
+      categoriaActiva = "";
+    } else {
+      categoriaActiva = id;
+    }
+
+    mostrarCategoria();
   });
 });
 
-/* buscador: cada vez que se escribe una letra guardo el texto y
-   actualizo la grilla en el momento */
-buscador.addEventListener("input", function () {
-  textoBusqueda = buscador.value;
-  actualizarCatalogo();
-});
+/* cartel de aviso */
 
-/* select de ordenar: cuando cambia la opcion la guardo y actualizo */
-selectorOrden.addEventListener("change", function () {
-  orden = selectorOrden.value;
-  actualizarCatalogo();
-});
+/* creo el cartelito de abajo desde js porque menu.html no lo tiene.
+   el estilo ya esta en el css (#toast y #toast.show) */
+const aviso = document.createElement("div");
+aviso.id = "toast";
+document.body.appendChild(aviso);
 
-/* muestra el cartelito de abajo un ratito y despues lo
-   esconde sacandole la clase show */
 let temporizadorAviso;
 function mostrarAviso(mensaje) {
   aviso.textContent = mensaje;
@@ -155,27 +71,69 @@ function mostrarAviso(mensaje) {
   }, 1800);
 }
 
-/* botones de +: a cada uno le agrego un click que suma uno al
-   carrito, muestra el aviso y pone el boton verde un instante */
-datos.forEach(function (item) {
-  const botonAgregar = item.elemento.querySelector(".add-btn");
+/* contador del carrito */
 
-  botonAgregar.addEventListener("click", function () {
-    cantidadCarrito++;
-    contadorCarrito.textContent = cantidadCarrito;
-    mostrarAviso(item.nombre + " agregado al carrito");
+/* creo el numerito naranja arriba del carrito. el icono es un link,
+   asi que le pongo position relative para que el numerito se ubique
+   en base a el */
+const contador = document.createElement("span");
+contador.className = "cart-count";
+iconoCarrito.style.position = "relative";
+iconoCarrito.appendChild(contador);
 
-    botonAgregar.classList.add("added");
-    botonAgregar.textContent = "✓";
-    setTimeout(function () {
-      botonAgregar.classList.remove("added");
-      botonAgregar.textContent = "+";
-    }, 700);
+/* suma todas las cantidades del pedido y las muestra en el numerito.
+   si no hay nada lo escondo */
+function actualizarContador() {
+  let total = 0;
+
+  pedido.forEach(function (producto) {
+    total += producto.cantidad;
+  });
+
+  contador.textContent = total;
+  contador.style.display = total === 0 ? "none" : "flex";
+}
+
+/* agregar al pedido */
+
+/* saco el precio como numero a partir del texto ("$9.500" pasa a 9500) */
+function obtenerPrecio(texto) {
+  const precio = texto.match(/\$\s?[\d.]+/);
+  return precio ? Number(precio[0].replace(/\D/g, "")) : 0;
+}
+
+/* al tocar el "+", en vez de saltar directo a pedidos.html, guardo el
+   producto en el pedido, actualizo el contador y muestro el aviso */
+botonesAgregar.forEach(function (boton) {
+  boton.addEventListener("click", function (evento) {
+    evento.preventDefault();
+
+    const tarjeta = boton.closest(".card");
+    const nombre = tarjeta.querySelector("h3").textContent;
+    const precio = obtenerPrecio(tarjeta.querySelector(".price").textContent);
+
+    /* si el producto ya estaba en el pedido le sumo uno, si no lo creo */
+    const existente = pedido.find(function (producto) {
+      return producto.nombre === nombre;
+    });
+
+    if (existente) {
+      existente.cantidad++;
+    } else {
+      pedido.push({ nombre: nombre, precio: precio, cantidad: 1 });
+    }
+
+    localStorage.setItem("pedido", JSON.stringify(pedido));
+
+    actualizarContador();
+    mostrarAviso(nombre + " agregado al pedido");
   });
 });
 
-/* la llamo una vez al principio para que la pagina arranque ordenada */
-actualizarCatalogo();
+/* al cargar la pagina muestro todas las secciones y el contador
+   con lo que ya habia guardado */
+mostrarCategoria();
+actualizarContador();
 
 /* Fin parte de Andres */
 
