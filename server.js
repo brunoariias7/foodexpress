@@ -319,6 +319,63 @@ app.post("/registro", async (req, res) => {
         });
     }
 });
+// Iniciar sesión
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({
+            mensaje: "Completá todos los campos"
+        });
+    }
+
+    try {
+        const correo = email.trim().toLowerCase();
+
+        const [usuarios] = await db.query(
+            "SELECT * FROM usuarios WHERE email = ?",
+            [correo]
+        );
+
+        if (usuarios.length === 0) {
+            return res.status(401).json({
+                mensaje: "Correo o contraseña incorrectos"
+            });
+        }
+
+        const usuario = usuarios[0];
+
+        const passwordValida = await bcrypt.compare(
+            password,
+            usuario.password_hash
+        );
+
+        if (!passwordValida) {
+            return res.status(401).json({
+                mensaje: "Correo o contraseña incorrectos"
+            });
+        }
+
+        req.session.usuario = {
+            id: usuario.id,
+            nombre: usuario.nombre,
+            email: usuario.email,
+            rol: usuario.rol
+        };
+
+        res.json({
+            mensaje: "Inicio de sesión exitoso",
+            usuario: req.session.usuario
+        });
+
+    } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+
+        res.status(500).json({
+            mensaje: "Error interno del servidor"
+        });
+    }
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
