@@ -52,7 +52,34 @@ app.get("/productos", async (req, res) => {
         });
     }
 });
+// Crear un nuevo pedido
+app.post("/pedidos", async (req, res) => {
+    const { productos } = req.body;
 
+    if (!Array.isArray(productos) || productos.length === 0) {
+        return res.status(400).json({
+            mensaje: "El pedido está vacío"
+        });
+    }
+
+    // Por ahora solo validamos que lleguen IDs y cantidades válidas
+    for (const producto of productos) {
+        if (
+            !Number.isInteger(Number(producto.id)) ||
+            !Number.isInteger(Number(producto.cantidad)) ||
+            Number(producto.id) <= 0 ||
+            Number(producto.cantidad) <= 0
+        ) {
+            return res.status(400).json({
+                mensaje: "Producto o cantidad inválida"
+            });
+        }
+    }
+
+    res.json({
+        mensaje: "Los productos llegaron correctamente al servidor"
+    });
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
