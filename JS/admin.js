@@ -65,5 +65,47 @@ async function cargarPedidos() {
         listaPedidos.innerHTML = "<p>Error al cargar los pedidos.</p>";
     }
 }
+// Guardar cambios de estado
+listaPedidos.addEventListener("click", async function (evento) {
+    if (!evento.target.classList.contains("guardar-estado")) {
+        return;
+    }
 
+    const pedidoId = evento.target.dataset.id;
+
+    const selector = listaPedidos.querySelector(
+        `.estado-pedido[data-id="${pedidoId}"]`
+    );
+
+    const nuevoEstado = selector.value;
+
+    try {
+        const respuesta = await fetch(
+            `http://localhost:3000/admin/pedidos/${pedidoId}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    estado: nuevoEstado
+                })
+            }
+        );
+
+        const resultado = await respuesta.json();
+
+        if (!respuesta.ok) {
+            throw new Error(resultado.mensaje);
+        }
+
+        alert("¡Estado del pedido actualizado!");
+
+        cargarPedidos();
+
+    } catch (error) {
+        console.error(error);
+        alert("No se pudo actualizar el estado: " + error.message);
+    }
+});
 cargarPedidos();
