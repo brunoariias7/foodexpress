@@ -159,6 +159,36 @@ app.post("/pedidos", async (req, res) => {
         }
     }
 });
+// Consultar todos los pedidos
+app.get("/admin/pedidos", async (req, res) => {
+    try {
+        const [pedidos] = await db.query(
+            "SELECT * FROM pedidos ORDER BY fecha_creacion DESC"
+        );
+
+        const [detalles] = await db.query(
+            "SELECT * FROM detalle_pedido"
+        );
+
+        const pedidosCompletos = pedidos.map(function (pedido) {
+            return {
+                ...pedido,
+                productos: detalles.filter(function (detalle) {
+                    return detalle.pedido_id === pedido.id;
+                })
+            };
+        });
+
+        res.json(pedidosCompletos);
+
+    } catch (error) {
+        console.error("Error al consultar pedidos:", error);
+
+        res.status(500).json({
+            mensaje: "Error al consultar los pedidos"
+        });
+    }
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
