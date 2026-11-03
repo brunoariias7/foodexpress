@@ -138,22 +138,22 @@ actualizarContador();
 /* Fin parte de Andres */
 // Cargar productos desde MySQL
 async function cargarProductos() {
-    try {
-        const respuesta = await fetch("http://localhost:3000/productos");
-        const productos = await respuesta.json();
+  try {
+    const respuesta = await fetch("http://localhost:3000/productos");
+    const productos = await respuesta.json();
 
-        productos.forEach(function (producto) {
+    productos.forEach(function (producto) {
 
-            const contenedor = document.getElementById(
-                "productos-" + producto.categoria
-            );
+      const contenedor = document.getElementById(
+        "productos-" + producto.categoria
+      );
 
-            if (!contenedor) return;
+      if (!contenedor) return;
 
-            const tarjeta = document.createElement("article");
-            tarjeta.className = "card";
+      const tarjeta = document.createElement("article");
+      tarjeta.className = "card";
 
-            tarjeta.innerHTML = `
+      tarjeta.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.nombre}">
                 <div class="card-body">
                     <h3>${producto.nombre}</h3>
@@ -164,13 +164,36 @@ async function cargarProductos() {
                     </div>
                 </div>
             `;
+      const boton = tarjeta.querySelector(".add-btn");
 
-            contenedor.appendChild(tarjeta);
+      boton.addEventListener("click", function (evento) {
+        evento.preventDefault();
+
+        const existente = pedido.find(function (item) {
+          return item.nombre === producto.nombre;
         });
 
-    } catch (error) {
-        console.error("Error al cargar productos:", error);
-    }
+        if (existente) {
+          existente.cantidad++;
+        } else {
+          pedido.push({
+            nombre: producto.nombre,
+            precio: Number(producto.precio),
+            cantidad: 1
+          });
+        }
+
+        localStorage.setItem("pedido", JSON.stringify(pedido));
+
+        actualizarContador();
+        mostrarAviso(producto.nombre + " agregado al pedido");
+      });
+      contenedor.appendChild(tarjeta);
+    });
+
+  } catch (error) {
+    console.error("Error al cargar productos:", error);
+  }
 }
 
 cargarProductos();
