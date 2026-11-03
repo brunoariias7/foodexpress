@@ -25,7 +25,7 @@
     <section class="auth-card">
         <h1>Crear una cuenta</h1>
         <p>Completá tus datos para registrarte.</p>
-        <form>
+        <form id="form-registro">
         <label for="nombre">Nombre completo</label>
         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
         <label for="email">Correo electrónico</label>
@@ -36,6 +36,7 @@
         <input type="password" id="confirmar" name="confirmar" placeholder="Repetí la contraseña" required>
             <button type="submit">Registrarme</button>
         </form>
+        <p id="mensaje-registro"></p>
         <p class="auth-enlace">¿Ya tenés cuenta? <a href="login.html">Iniciá sesión</a></p>
     </section>
 </main>
@@ -44,5 +45,6 @@
     <p>Tu comida favorita, donde quieras.</p>
     <p class="copyright">© 2026 FoodExpress - Todos los derechos reservados.</p>
 </footer>
+<script src="JS/registro.js"></script>
 </body>
 </html>
