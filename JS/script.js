@@ -136,4 +136,42 @@ mostrarCategoria();
 actualizarContador();
 
 /* Fin parte de Andres */
+// Cargar productos desde MySQL
+async function cargarProductos() {
+    try {
+        const respuesta = await fetch("http://localhost:3000/productos");
+        const productos = await respuesta.json();
+
+        productos.forEach(function (producto) {
+
+            const contenedor = document.getElementById(
+                "productos-" + producto.categoria
+            );
+
+            if (!contenedor) return;
+
+            const tarjeta = document.createElement("article");
+            tarjeta.className = "card";
+
+            tarjeta.innerHTML = `
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <div class="card-body">
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.descripcion}</p>
+                    <div class="price-row">
+                        <span class="price">$${Number(producto.precio).toLocaleString("es-AR")}</span>
+                        <a class="add-btn" href="pedidos.html">+</a>
+                    </div>
+                </div>
+            `;
+
+            contenedor.appendChild(tarjeta);
+        });
+
+    } catch (error) {
+        console.error("Error al cargar productos:", error);
+    }
+}
+
+cargarProductos();
 
