@@ -189,6 +189,56 @@ app.get("/admin/pedidos", async (req, res) => {
         });
     }
 });
+// Actualizar estado de un pedido
+app.put("/admin/pedidos/:id", async (req, res) => {
+    const pedidoId = Number(req.params.id);
+    const { estado } = req.body;
+
+    const estadosPermitidos = [
+        "pendiente",
+        "preparando",
+        "enviado",
+        "entregado"
+    ];
+
+    if (!Number.isInteger(pedidoId) || pedidoId <= 0) {
+        return res.status(400).json({
+            mensaje: "ID de pedido inválido"
+        });
+    }
+
+    if (!estadosPermitidos.includes(estado)) {
+        return res.status(400).json({
+            mensaje: "Estado no válido"
+        });
+    }
+
+    try {
+        const [resultado] = await db.query(
+            "UPDATE pedidos SET estado = ? WHERE id = ?",
+            [estado, pedidoId]
+        );
+
+        if (resultado.affectedRows === 0) {
+            return res.status(404).json({
+                mensaje: "Pedido no encontrado"
+            });
+        }
+
+        res.json({
+            mensaje: "Estado actualizado correctamente",
+            pedido_id: pedidoId,
+            estado: estado
+        });
+
+    } catch (error) {
+        console.error("Error al actualizar estado:", error);
+
+        res.status(500).json({
+            mensaje: "No se pudo actualizar el estado"
+        });
+    }
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
