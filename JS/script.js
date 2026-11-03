@@ -170,13 +170,14 @@ async function cargarProductos() {
         evento.preventDefault();
 
         const existente = pedido.find(function (item) {
-          return item.nombre === producto.nombre;
+          return item.id === producto.id;
         });
 
         if (existente) {
           existente.cantidad++;
         } else {
           pedido.push({
+            id: producto.id,
             nombre: producto.nombre,
             precio: Number(producto.precio),
             cantidad: 1
