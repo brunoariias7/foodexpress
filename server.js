@@ -376,6 +376,19 @@ app.post("/login", async (req, res) => {
         });
     }
 });
+// Consultar sesión del usuario
+app.get("/sesion", (req, res) => {
+    if (!req.session.usuario) {
+        return res.status(401).json({
+            mensaje: "No hay una sesión iniciada"
+        });
+    }
+
+    res.json({
+        autenticado: true,
+        usuario: req.session.usuario
+    });
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
