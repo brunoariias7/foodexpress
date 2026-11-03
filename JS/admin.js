@@ -41,6 +41,19 @@ async function cargarPedidos() {
                     ${productosHTML}
 
                     <h3>Total: $${Number(pedido.total).toLocaleString("es-AR")}</h3>
+
+<label>Estado del pedido:</label>
+
+<select class="estado-pedido" data-id="${pedido.id}">
+    <option value="pendiente" ${pedido.estado === "pendiente" ? "selected" : ""}>Pendiente</option>
+    <option value="preparando" ${pedido.estado === "preparando" ? "selected" : ""}>Preparando</option>
+    <option value="enviado" ${pedido.estado === "enviado" ? "selected" : ""}>Enviado</option>
+    <option value="entregado" ${pedido.estado === "entregado" ? "selected" : ""}>Entregado</option>
+</select>
+
+<button class="guardar-estado" data-id="${pedido.id}">
+    Guardar estado
+</button>
                 </div>
             `;
 
