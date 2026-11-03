@@ -25,47 +25,19 @@
     </header>
 
     <main class="pedidos-pagina">
-        <h1>Mis pedidos</h1>
-        <p>Seguimiento del pedido</p>
-        <section id="pedido-actual">
-            <h2>Pedido #1258</h2>
-            <p>Fecha: 24/08/2026 - 13:45hs</p>
-            <p>Pedido recibido</p>
-            <p>En preparacion</p>
-            <p>En camino</p>
-            <p>Entregado: pendiente</p>
+        <h1>Mi carrito</h1>
+        <p>Revisá los productos que elegiste.</p>
 
-            <h3>Tiempo estimado de entrega:</h3>
-            <p>20-30 minutos</p>
+        <section id="lista-carrito">
+            <!-- Los productos aparecerán automáticamente -->
         </section>
 
-        <section id="historial">
-            <h2>Mis pedidos</h2>
-            <div class="pedido">
-                <h3>Pedido #1258</h3>
-                <p>Fecha: 24/06/2026</p>
-                <p>Total: $9000</p>
-                <p>Estado: en camino</p>
-                <button>Ver detalles</button>
-            </div>
-
-            <div class="pedido">
-                <h3>Pedido #1198</h3>
-                <p>Fecha: 20/06/2026</p>
-                <p>Total: $7200</p>
-                <p>Estado: entregado</p>
-                <button>Ver detalles</button>
-            </div>
-
-            <div class="pedido">
-                <h3>Pedido #1150</h3>
-                <p>Fecha: 16/06/2026</p>
-                <p>Total: $8100</p>
-                <p>Estado: cancelado</p>
-                <button>Ver detalles</button>
-            </div>
+        <section id="resumen-carrito">
+            <h2>Resumen del pedido</h2>
+            <p>Total: <strong id="total-carrito">$0</strong></p>
+            <button id="vaciar-carrito">Vaciar carrito</button>
         </section>
     </main>
-</body>
 
+</body>
 </html>
