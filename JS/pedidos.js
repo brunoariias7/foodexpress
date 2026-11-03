@@ -54,6 +54,54 @@ botonVaciar.addEventListener("click", function () {
 
     mostrarCarrito();
 });
+// Confirmar pedido
+const botonConfirmar = document.getElementById("confirmar-pedido");
 
+botonConfirmar.addEventListener("click", async function () {
+    if (pedido.length === 0) {
+        alert("Tu carrito está vacío");
+        return;
+    }
+
+    const productos = pedido.map(function (producto) {
+        return {
+            id: producto.id,
+            cantidad: producto.cantidad
+        };
+    });
+
+    try {
+        const respuesta = await fetch("http://localhost:3000/pedidos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ productos: productos })
+        });
+
+        const resultado = await respuesta.json();
+
+        if (!respuesta.ok) {
+            throw new Error(resultado.mensaje);
+        }
+
+        alert(
+            "¡Pedido confirmado!\nNúmero de pedido: " +
+            resultado.pedido_id +
+            "\nTotal: $" +
+            Number(resultado.total).toLocaleString("es-AR")
+        );
+
+        pedido = [];
+
+        localStorage.setItem("pedido", JSON.stringify(pedido));
+
+        mostrarCarrito();
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("No se pudo confirmar el pedido: " + error.message);
+    }
+});
 // Mostrar al cargar
 mostrarCarrito();
