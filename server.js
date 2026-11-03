@@ -62,7 +62,6 @@ app.post("/pedidos", async (req, res) => {
         });
     }
 
-    // Por ahora solo validamos que lleguen IDs y cantidades válidas
     for (const producto of productos) {
         if (
             !Number.isInteger(Number(producto.id)) ||
@@ -76,9 +75,89 @@ app.post("/pedidos", async (req, res) => {
         }
     }
 
-    res.json({
-        mensaje: "Los productos llegaron correctamente al servidor"
-    });
+    let conexion;
+
+    try {
+        conexion = await db.getConnection();
+        await conexion.beginTransaction();
+
+        let total = 0;
+        const detalles = [];
+
+        for (const producto of productos) {
+            const [resultado] = await conexion.query(
+                "SELECT id, nombre, precio FROM productos WHERE id = ?",
+                [producto.id]
+            );
+
+            if (resultado.length === 0) {
+                throw new Error("Producto no encontrado: " + producto.id);
+            }
+
+            const datos = resultado[0];
+            const cantidad = Number(producto.cantidad);
+            const precio = Number(datos.precio);
+            const subtotal = precio * cantidad;
+
+            total += subtotal;
+
+            detalles.push({
+                id: datos.id,
+                nombre: datos.nombre,
+                precio: precio,
+                cantidad: cantidad,
+                subtotal: subtotal
+            });
+        }
+
+        const [pedidoCreado] = await conexion.query(
+            "INSERT INTO pedidos (total) VALUES (?)",
+            [total]
+        );
+
+        const pedidoId = pedidoCreado.insertId;
+
+        for (const detalle of detalles) {
+            await conexion.query(
+                `INSERT INTO detalle_pedido
+                (pedido_id, producto_id, nombre_producto,
+                precio_unitario, cantidad, subtotal)
+                VALUES (?, ?, ?, ?, ?, ?)`,
+                [
+                    pedidoId,
+                    detalle.id,
+                    detalle.nombre,
+                    detalle.precio,
+                    detalle.cantidad,
+                    detalle.subtotal
+                ]
+            );
+        }
+
+        await conexion.commit();
+
+        res.status(201).json({
+            mensaje: "Pedido guardado correctamente",
+            pedido_id: pedidoId,
+            total: total
+        });
+
+    } catch (error) {
+        if (conexion) {
+            await conexion.rollback();
+        }
+
+        console.error("Error al guardar pedido:", error);
+
+        res.status(500).json({
+            mensaje: "No se pudo guardar el pedido"
+        });
+
+    } finally {
+        if (conexion) {
+            conexion.release();
+        }
+    }
 });
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
