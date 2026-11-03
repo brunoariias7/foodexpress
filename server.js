@@ -269,6 +269,56 @@ app.put("/admin/pedidos/:id", async (req, res) => {
         });
     }
 });
+// Registrar un nuevo usuario
+app.post("/registro", async (req, res) => {
+    const { nombre, email, password } = req.body;
+
+    if (!nombre || !email || !password) {
+        return res.status(400).json({
+            mensaje: "Todos los campos son obligatorios"
+        });
+    }
+
+    if (password.length < 8) {
+        return res.status(400).json({
+            mensaje: "La contraseña debe tener al menos 8 caracteres"
+        });
+    }
+
+    try {
+        const correo = email.trim().toLowerCase();
+
+        const [usuarios] = await db.query(
+            "SELECT id FROM usuarios WHERE email = ?",
+            [correo]
+        );
+
+        if (usuarios.length > 0) {
+            return res.status(409).json({
+                mensaje: "Ese correo ya está registrado"
+            });
+        }
+
+        const passwordHash = await bcrypt.hash(password, 12);
+
+        await db.query(
+            `INSERT INTO usuarios (nombre, email, password_hash)
+             VALUES (?, ?, ?)`,
+            [nombre.trim(), correo, passwordHash]
+        );
+
+        res.status(201).json({
+            mensaje: "Usuario registrado correctamente"
+        });
+
+    } catch (error) {
+        console.error("Error al registrar usuario:", error);
+
+        res.status(500).json({
+            mensaje: "No se pudo registrar el usuario"
+        });
+    }
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
