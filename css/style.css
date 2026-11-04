@@ -1343,3 +1343,20 @@ pedidos-pagina .pedido p {
   font-size: 14px;
   margin-bottom: 10px;
 }
+
+/*boton eliminar*/
+.pedidos-pagina .pedido button {
+  background-color: #fff;
+  color: #e56f0a;
+  border: 1px solid #e56f0a;
+  padding: 9px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+.pedidos-pagina .pedido button:hover {
+  background-color: #e56f0a;
+  color: white;
+}
