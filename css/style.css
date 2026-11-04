@@ -1289,3 +1289,11 @@ body > p{
     padding: 12px 15px;
     text-align: left;
 }
+
+/* pagina pedidos */
+.pedidos-pagina {
+  max-width: 1150px;
+  min-height: 75vh;
+  margin: 0 auto;
+  padding: 55px 30px;
+}
