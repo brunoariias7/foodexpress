@@ -1241,3 +1241,51 @@ body > p{
 #cerrar-sesion:hover {
     background-color: #c1121f;
 }
+.usuario-conectado {
+    position: relative;
+}
+
+#usuario-boton {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.usuario-desplegable {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 12px;
+    background-color: white;
+    min-width: 170px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.usuario-desplegable.mostrar {
+    display: flex;
+    flex-direction: column;
+}
+
+.usuario-desplegable a {
+    color: #222;
+    padding: 12px 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.usuario-desplegable a:hover {
+    background-color: #f2f2f2;
+}
+
+.usuario-desplegable #cerrar-sesion {
+    border-radius: 0;
+    padding: 12px 15px;
+    text-align: left;
+}
