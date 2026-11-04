@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         usuarioMenu.innerHTML = `
             <div class="usuario-conectado">
-                <span>Hola, ${datos.usuario}</span>
+                <span>Hola, ${datos.usuario.nombre}</span>
                 <button id="cerrar-sesion">Cerrar sesión</button>
             </div>
         `;
