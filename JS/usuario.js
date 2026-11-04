@@ -28,7 +28,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
     </div>
 `;
+        const usuarioBoton = document.getElementById("usuario-boton");
+        const usuarioDesplegable = document.getElementById("usuario-desplegable");
 
+        usuarioBoton.addEventListener("click", () => {
+            usuarioDesplegable.classList.toggle("mostrar");
+        });
         document.getElementById("cerrar-sesion").addEventListener("click", async () => {
             const cierre = await fetch("http://127.0.0.1:3000/logout", {
                 method: "POST",
