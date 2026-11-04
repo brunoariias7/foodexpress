@@ -16,11 +16,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         const datos = await respuesta.json();
 
         usuarioMenu.innerHTML = `
-            <div class="usuario-conectado">
-                <span>Hola, ${datos.usuario.nombre}</span>
-                <button id="cerrar-sesion">Cerrar sesión</button>
-            </div>
-        `;
+    <div class="usuario-conectado">
+        <button id="usuario-boton">
+            Hola, ${datos.usuario.nombre} ▼
+        </button>
+
+        <div id="usuario-desplegable" class="usuario-desplegable">
+            <a href="perfil.html">Mi perfil</a>
+            <a href="pedidos.html">Mis pedidos</a>
+            <button id="cerrar-sesion">Cerrar sesión</button>
+        </div>
+    </div>
+`;
 
         document.getElementById("cerrar-sesion").addEventListener("click", async () => {
             const cierre = await fetch("http://127.0.0.1:3000/logout", {
