@@ -389,6 +389,22 @@ app.get("/sesion", (req, res) => {
         usuario: req.session.usuario
     });
 });
+// Cerrar sesión
+app.post("/logout", (req, res) => {
+    req.session.destroy((error) => {
+        if (error) {
+            return res.status(500).json({
+                mensaje: "No se pudo cerrar la sesión"
+            });
+        }
+
+        res.clearCookie("foodexpress_session");
+
+        res.json({
+            mensaje: "Sesión cerrada correctamente"
+        });
+    });
+});
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
