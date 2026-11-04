@@ -1197,3 +1197,47 @@ body > p{
     margin: 0 20px 20px;
 }
 /* fin parte de sofi */
+/* MENÚ DE USUARIO */
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-icons > a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+#usuario-menu {
+    position: relative;
+}
+
+.usuario-conectado {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.usuario-conectado span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#cerrar-sesion {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+#cerrar-sesion:hover {
+    background-color: #c1121f;
+}
