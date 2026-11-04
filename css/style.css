@@ -1333,7 +1333,7 @@ body > p{
   transform: translateY(-4px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
 }
-,pedidos-pagina .pedido h3 {
+.pedidos-pagina .pedido h3 {
   font-size: 19px;
   color: #1c1c1c;
   margin-bottom: 15px;
@@ -1411,4 +1411,32 @@ pedidos-pagina .pedido p {
 }
 #confirmar-pedido:hover {
   background-color: #e56f0a;
+}
+
+/*carrito vacio*/
+#lista-carrito > p {
+  grid-column: 1 / -1;
+  text-align: center;
+  background-color: white;
+  padding: 45px 20px;
+  border-radius: 12px;
+  color: #777;
+  border: 1px solid #ddd;
+}
+
+/*adaptacion para celular*/
+@media (max-width: 700px) {
+  .pedidos-pagina {
+    padding: 35px 18px;
+  }
+  .pedidos-pagina h1 {
+    font-size: 29px;
+  }
+  #lista-carrito {
+    grid-template-columns: 1fr;
+  }
+  #resumen-carrito {
+    max-width: 100%;
+    padding: 22px;
+  }
 }
