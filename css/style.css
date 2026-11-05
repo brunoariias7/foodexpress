@@ -411,3 +411,186 @@ footer p { margin: 5px 0; }
 .auth-card button:hover { background: var(--naranja-oscuro); }
 .auth-card .auth-enlace { margin: 20px 0 0; text-align: center; }
 .auth-enlace a { color: var(--naranja-oscuro); font-weight: bold; }
+
+/* PARTE SOFI */
+.pedidos-pagina {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 55px 35px;
+    min-height: 75vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    column-gap: 35px;
+    align-content: start;
+}
+
+/*titulo y descripcion*/
+.pedidos-pagina h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 36px;
+    color: #1c1c1c;
+    margin-bottom: 10px;
+}
+.pedidos-pagina > p {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 40px;
+}
+
+/*lista del carrito*/
+#lista-carrito {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-content: start;
+}
+
+/*productos*/
+.pedidos-pagina .pedido {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    transition: 0.2s;
+}
+.pedidos-pagina .pedido:hover {
+    box-shadow: 0 7px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+.pedidos-pagina .pedido h3 {
+    color: #222;
+    font-size: 19px;
+    margin-bottom: 14px;
+}
+.pedidos-pagina .pedido p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/*eliminar producto*/
+.pedidos-pagina .pedido button {
+    background: white;
+    color: #e56f0a;
+    border: 1px solid #e56f0a;
+    border-radius: 7px;
+    padding: 9px 16px;
+    margin-top: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.pedidos-pagina .pedido button:hover {
+    background: #e56f0a;
+    color: white;
+}
+
+/*carrito vacio*/
+#lista-carrito > p {
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    background: #fff;
+    border: 1px dashed #ddd;
+    border-radius: 12px;
+    color: #777;
+    font-size: 15px;
+}
+
+/*resumen*/
+#resumen-carrito {
+    align-self: start;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+}
+#resumen-carrito h2 {
+    font-size: 21px;
+    color: #222;
+    margin-bottom: 22px;
+}
+#resumen-carrito p {
+    color: #555;
+    font-size: 15px;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    margin-bottom: 20px;
+}
+#total-carrito {
+    color: #f5821f;
+    font-size: 22px;
+    margin-left: 8px;
+}
+
+/*botones del resumen*/
+#resumen-carrito button {
+    width: 100%;
+    padding: 13px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#vaciar-carrito {
+    background: white;
+    color: #555;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+#vaciar-carrito:hover {
+    background: #f2f2f2;
+}
+#confirmar-pedido {
+    background: #f5821f;
+    color: white;
+    border: 1px solid #f5821f;
+}
+#confirmar-pedido:hover {
+    background: #e56f0a;
+    border-color: #e56f0a;
+}
+
+/*adaptacion para celular*/
+
+@media (max-width: 800px) {
+    .pedidos-pagina {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 25px;
+    }
+    .pedidos-pagina h1 {
+        font-size: 30px;
+    }
+    .pedidos-pagina > p {
+        margin-bottom: 15px;
+    }
+    #resumen-carrito {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .pedidos-pagina {
+        padding: 30px 15px;
+    }
+    .pedidos-pagina h1 {
+        font-size: 27px;
+    }
+    .pedidos-pagina .pedido {
+        padding: 19px;
+    }
+    #resumen-carrito {
+        padding: 22px;
+    }
+}
