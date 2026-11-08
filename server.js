@@ -165,8 +165,8 @@ app.post("/pedidos", async (req, res) => {
         }
 
         const [pedidoCreado] = await conexion.query(
-            "INSERT INTO pedidos (total) VALUES (?)",
-            [total]
+            "INSERT INTO pedidos (total, usuario_id) VALUES (?, ?)",
+            [total, usuarioId]
         );
 
         const pedidoId = pedidoCreado.insertId;
@@ -211,6 +211,33 @@ app.post("/pedidos", async (req, res) => {
         if (conexion) {
             conexion.release();
         }
+    }
+});
+// Consultar los pedidos del usuario
+app.get("/mis-pedidos", async (req, res) => {
+
+    if (!req.session.usuario) {
+        return res.status(401).json({
+            mensaje: "Debés iniciar sesión"
+        });
+    }
+
+    try {
+        const [pedidos] = await db.query(
+            `SELECT * FROM pedidos
+             WHERE usuario_id = ?
+             ORDER BY fecha_creacion DESC`,
+            [req.session.usuario.id]
+        );
+
+        res.json(pedidos);
+
+    } catch (error) {
+        console.error("Error al consultar mis pedidos:", error);
+
+        res.status(500).json({
+            mensaje: "Error al consultar tus pedidos"
+        });
     }
 });
 // Consultar todos los pedidos
