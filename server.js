@@ -14,6 +14,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
+// Mostrar las páginas HTML, CSS, JavaScript e imágenes
+app.use(express.static(__dirname));
 
 const sessionStore = new MySQLStore({
     host: process.env.DB_HOST,
