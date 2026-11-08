@@ -208,7 +208,7 @@ app.post("/pedidos", async (req, res) => {
     }
 });
 // Consultar todos los pedidos
-app.get("/admin/pedidos", async (req, res) => {
+app.get("/admin/pedidos", verificarAdmin, async (req, res) => {
     try {
         const [pedidos] = await db.query(
             "SELECT * FROM pedidos ORDER BY fecha_creacion DESC"
@@ -238,7 +238,7 @@ app.get("/admin/pedidos", async (req, res) => {
     }
 });
 // Actualizar estado de un pedido
-app.put("/admin/pedidos/:id", async (req, res) => {
+app.put("/admin/pedidos/:id", verificarAdmin, async (req, res) => {
     const pedidoId = Number(req.params.id);
     const { estado } = req.body;
 
