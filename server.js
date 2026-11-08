@@ -6,6 +6,22 @@ const MySQLStore = require("express-mysql-session")(session);
 const bcrypt = require("bcrypt");
 
 const app = express();
+// Verificar que el usuario sea administrador
+function verificarAdmin(req, res, next) {
+    if (!req.session.usuario) {
+        return res.status(401).json({
+            mensaje: "Debés iniciar sesión"
+        });
+    }
+
+    if (req.session.usuario.rol !== "admin") {
+        return res.status(403).json({
+            mensaje: "No tenés permisos de administrador"
+        });
+    }
+
+    next();
+}
 const PORT = 3000;
 
 app.use(cors({
