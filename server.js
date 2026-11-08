@@ -102,6 +102,12 @@ app.get("/productos", async (req, res) => {
 });
 // Crear un nuevo pedido
 app.post("/pedidos", async (req, res) => {
+    if (!req.session.usuario) {
+        return res.status(401).json({
+            mensaje: "Debés iniciar sesión para realizar un pedido"
+        });
+    }
+    const usuarioId = req.session.usuario.id;
     const { productos } = req.body;
 
     if (!Array.isArray(productos) || productos.length === 0) {
