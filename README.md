@@ -1,4 +1,4 @@
-FOOD EXPRESS 🍔
+FOOD EXPRESS 
 Descripción del proyecto
 
 FoodExpress es una aplicación web de pedidos de comida desarrollada como proyecto académico. Permite a los usuarios registrarse, iniciar sesión, explorar un menú de productos, agregar productos al carrito y realizar pedidos.
