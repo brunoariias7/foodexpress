@@ -15,7 +15,7 @@ formulario.addEventListener("submit", async function (evento) {
     }
 
     try {
-        const respuesta = await fetch("http://127.0.0.1:3000/registro", {
+        const respuesta = await fetch("http://localhost:3000/registro", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

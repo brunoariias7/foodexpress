@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const usuarioMenu = document.getElementById("usuario-menu");
 
     try {
-        const respuesta = await fetch("http://127.0.0.1:3000/sesion", {
+        const respuesta = await fetch("http://localhost:3000/sesion", {
             credentials: "include"
         });
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             usuarioDesplegable.classList.toggle("mostrar");
         });
         document.getElementById("cerrar-sesion").addEventListener("click", async () => {
-            const cierre = await fetch("http://127.0.0.1:3000/logout", {
+            const cierre = await fetch("http://localhost:3000/logout", {
                 method: "POST",
                 credentials: "include"
             });

@@ -2,7 +2,9 @@ const listaPedidos = document.getElementById("lista-pedidos");
 
 async function cargarPedidos() {
     try {
-        const respuesta = await fetch("http://localhost:3000/admin/pedidos");
+        const respuesta = await fetch("http://localhost:3000/admin/pedidos", {
+    credentials: "include"
+});
 
         if (!respuesta.ok) {
             throw new Error("No se pudieron cargar los pedidos");
@@ -84,6 +86,7 @@ listaPedidos.addEventListener("click", async function (evento) {
             `http://localhost:3000/admin/pedidos/${pedidoId}`,
             {
                 method: "PUT",
+                credentials: "include",
                 headers: {
                     "Content-Type": "application/json"
                 },
